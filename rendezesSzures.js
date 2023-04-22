@@ -36,5 +36,7 @@ export function rendezBarmiSzerint(lista,kulcs, irany=1) {
  * 
  */
 
-export function szuresBarmiSzerint(lista, feltetel)
+export function szuresBarmiSzerint(lista, feltetel){
+  
+}
 

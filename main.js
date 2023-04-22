@@ -25,14 +25,9 @@ $(function () {
   
   function torlesGomb() {
     const TR = $("tr");
-  
+    TR.append("<td><button>Törlés</button></td>");
     for (let index = 0; index < PROGRAMLISTA.length; index++) {
-      const TD = $("td");
-      const TORLES = $("button");
-      TORLES.innerText = "Törlés";
-      TR[index].appendChild(TD);
-      TD.appendChild(TORLES);
-      TORLES.on("click", function () {
+      $("button").eq(index).on("click", function () {
         torlesFunkcio(index);
       });
     }
@@ -55,11 +50,11 @@ $(function () {
       
       if ($("#presztv").value < 5) {
           kuldheto = false;
-          $("#adathiba").html(hibauzenet);
+          $("#adathiba").append(hibauzenet);
       } else {
           Program.resztvevok = $("#presztv").value;
           kuldheto = true;
-          $("#adathiba").html("");
+          $("#adathiba").append("");
       }
   
       if ($("#ivos").checked) {

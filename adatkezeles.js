@@ -1,35 +1,39 @@
 export function osszeallit(lista) {
-    let txt = "";
-    txt += `<div class = "container">`;
+    let content = "";
+    content += `<div class = "container">`;
     for (let index = 0; index < lista.length; index++) {
-      for (const key in lista) {
-        lista[key];
+      //konzolra:
+      for (const ghjghjg in lista[index]) {
+       console.log("kulcs",ghjghjg);
+       //console.log(lista[index]);
+       console.log("érték",lista[index][ghjghjg]);
+    
       }
-      for (const kutya of lista) {
-      }
-      txt += `<div class= "kartya">`;
-      txt += `<h3>Regisztrált programok:</h3>`;
+     //html-be:
+      content += `<div class= "kartya">`;
+      content += `<h3>Regisztrált programok:</h3>`;
       for (const kulcs in lista[index]) {
-        txt += `<p>${kulcs}: ${lista[index][kulcs]}</p>`;
+        content += `<p>${kulcs}: ${lista[index][kulcs]}</p>`;
       }
-      txt += `</div>`;
+      content += `</div>`;
     }
-    txt += `</div>`;
-   return txt;
+    content += `</div>`;
+   return content;
 }
 
 export function osszeallit2(lista) {
-    let txt2 = "";
-    txt2 += `<div class = "container">`;
-    txt2 += `<table>`;
+    let content2 = "";
+    content2 += `<div class = "container">`;
+    content2 += `<table>`;
+    //+fejléc
     for (let index = 0; index < lista.length; index++) {
-        txt2 += `<tr>`;
+        content2 += `<tr>`;
         for (const kulcs in lista[index]) {
-            txt2 += `<td>${kulcs}: ${lista[index][kulcs]}</td>`;
+            content2 += `<td>${kulcs}: ${lista[index][kulcs]}</td>`;
         }
-        txt2 += `</tr>`;
+        content2 += `</tr>`;
     }
-    txt2 += `</table>`;
-    txt2 += `</div>`;
-    return txt2;
+    content2 += `</table>`;
+    content2 += `</div>`;
+    return content2;
 }
