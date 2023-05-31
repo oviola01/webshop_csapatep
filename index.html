@@ -12,37 +12,34 @@
     <title>Happy Team - Csapatépítésben elsők</title>
   </head>
   <body>
-    <article>
-      <section class="kartyak"></section>
-      <section class="tablazat"></section>
-    </article>
-    <aside>
-      <form action="javascript:void(0)">
-        <fieldset>
-          <legend>A következő csapatépítőnk legyen:</legend>
-          <div>
-            <label for="pneve">Program:</label>
-            <input type="text" id="pneve" name="pneve" required /><br /><br />
+    <div id="container">
+      <header id="header">
+          <h1><a href="index.html">Happy Team</a></h1>
+      </header>
+      <nav id="navbar">
+          <div class="navi"></div>
+          <div class="navi">
+              <button><a href="index.html">Főoldal</a></button>
           </div>
-          <label for="pido">Időpont:</label>
-          <input type="date" id="pido" name="pido" placeholder="ÉÉÉÉ-HH-NN" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" min="2023-04-01" max="2023-12-31" required/><br /><br />
-          <label for="phely">Helyszín:</label>
-          <input type="text" id="phely" name="phely" required /><br /><br />
-          <label for="presztv">Résztvevők száma:</label>
-          <input type="number" min="0" max="30" value="0" id="presztv" name="presztv" required/>
-          <span id="adathiba"></span><br /><br />
-
-          <fieldset>
-            <legend>Alkohol jöhet?</legend>
-            <input type="radio" id="ivos" name="palko" value="igen" checked />
-            <label for="igen">Naná</label>
-            <input type="radio" id="nemIvos" name="palko" value="nem" />
-            <label for="nem">Kösz, nem</label><br />
-          </fieldset>
-
-          <input type="submit" value="Rögzítés" id="rogzites"><br />
-        </fieldset>
-      </form>
-    </aside>
+          <div class="navi">
+              <button><a href="kosar.html">Kosár</a></button>
+          </div>
+      </nav>
+      <article id="content">
+        <section class="kartyak"></section>
+      </article>
+      <aside id="sidebar">
+        <div class="side">
+            <a href="about.html">Rólunk</a>
+        </div>
+        <div class="side">
+            <a href="contact.html">Kapcsolat</a>
+        </div>
+        <div class="side">
+            <a href="admin.html">Admin</a>
+        </div>
+      </aside>
+      <footer id="footer"></footer>
+  </div>
   </body>
 </html>

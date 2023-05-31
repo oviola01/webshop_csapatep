@@ -1,41 +1,426 @@
-*{
 
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12pt;
+    color:rgb(0, 36, 65);
 }
 
-.kartya{
-    border: 1px solid black;
+@font-face {
+    font-family: titleFont;
+    src: url(/fonts/loveyou.otf);
+  }
+
+#header { grid-area: header; }
+#navbar { grid-area: menu; }
+#content { grid-area: main; }
+#sidebar { grid-area: left; }
+#footer { grid-area: footer; }
+
+#container {
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'menu menu menu menu menu menu'
+        'left main main main main main'
+        'footer footer footer footer footer footer';
+    background-color: white;
+}
+
+#header, #navbar, #content, #sidebar, #footer, section.kartyak {
+    display: grid;
+    padding: 20px;
+}    
+
+#content, #header, #footer {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#navbar, #content {
+    text-align: center;
+}
+
+#header {
+    background-image: url(/pics/upper.png);
+    grid-template-columns: 3fr repeat(3, 1fr);
+    height: 200px;
+    padding-top: 80px;
+    text-align: left;
+}
+
+h1 a {
+    font-family: titleFont;
+    font-size: 55pt;
+    font-weight: lighter;
+}
+
+h1 a:hover, .description a:hover, .side a:hover {
+    color:rgb(60, 32, 161);
+}
+
+#navbar{
+    top: 0px;
+    position: fixed;
+    margin: 8px;
+    height: 100px;
+    grid-template-columns: 4fr repeat(2, 1fr);
+    gap: 8px;
+}
+
+button {
+    background-image: radial-gradient(rgb(85, 192, 241), white);
+    appearance: button;
+    border-radius: 6px;
+    border-width: 0;
+    font-weight: bold;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.navi button {
+    padding: 15px 80px;
+    box-shadow: 2px 5px 5px rgba(0, 96, 138, 0.555);
+    opacity: 0.75;
+}
+
+.navi button:hover {
+    box-shadow: 4px 8px 10px rgba(0, 66, 94, 0.555);
+    background-image: radial-gradient(rgb(60, 135, 170), white);
+    opacity: 0.95;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.list tbody .del button {
+    padding: 30px 30px 25px 30px;
+    border-radius: 15px;
+    box-shadow: 3px 5px rgb(85, 192, 241);
+    color: #12637c;
+}
+
+#sidebar {
+    margin: 30px 0 20px 20px;
+    padding-top: 90px;
+    width: 200px;
+    grid-template-rows: repeat(3, 60px) 1fr;
+    gap: 10px;
+    background-color: rgb(85, 192, 241);
+    border-radius: 15px 80px;
+    box-shadow: 4px 4px rgb(24, 99, 134);
+}
+
+.side {
+    text-align: left;
+    margin-left: 30px;
+    text-transform: uppercase;
+}
+
+.side a {
+    font-size: 14pt;
+}
+
+#content {
+    min-height: 600px;
+    padding: 40px 30px 30px 30px;
+}
+
+section.kartyak {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+h2 {
+    font-size: 24pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+.contact table, .list table {
+    padding-top: 20px;
+    text-align: left;
+}
+
+.contact th, .list th {
+    padding: 20px 120px 20px 60px;
+    box-shadow: 3px 3px rgb(24, 99, 134);
+}
+
+.contact th {
+    border-radius: 15px 100px;
+    background-color: rgb(85, 192, 241);
+    font-size: 14pt;
+}
+
+.list th {
+    border-radius: 15px;
+    font-size: 12pt;
+}
+
+.contact tbody td, .list tbody .rowElement {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 3px 5px rgb(85, 192, 241);
+}
+
+
+.contact tbody .ttle {
+    padding-left: 90px;
+}
+
+.contact tbody .descr {
+    padding-left: 30px;
+    padding-right: 80px;
+}
+
+.list th, .list tbody .rowElement {
+    padding-left: 15px;
+    padding-right: 40px;    
+}
+
+#footer { 
+    background-image: url(/pics/under.png);
+    padding-top: 80px;
+    text-align: right;
+}
+
+.card{
     padding: 20px;
     margin: 20px;
+    width: 200px;
+    height: 260px;
+    border-radius: 15px;
+    border: 3px solid rgb(85, 192, 241);
+    box-shadow: 2px 10px 15px rgba(0, 96, 138, 0.555);
 }
 
-
-table, tr, td{
-    border: 1px black solid;
-    padding: 15px;
-    border-collapse: collapse;
-    text-align: center;
-    padding: 25px;
-}
-
-.container{
-    border: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: row wrap;
-}
-
-.asztal{
-    display: flex;
-    align-items: center;
+h3 {
+    margin: 5px 0 10px 0;
 }
 
 form{
-    border: 1px solid black;
-    background-color: grey;
+    background-image: radial-gradient(rgb(85, 192, 241), white);
+    box-shadow: 3px 3px rgb(24, 99, 134);
+    border-radius: 10px;
     width: max-content;
-    padding: 10px;
+    padding: 20px;
+    margin-top: 30px;
 }
 form span{
-    color:red
+    color:rgb(156, 0, 39)
+}
+
+
+@media screen and (max-width: 900px){
+    *{
+        font-size: 12pt;
+    }
+
+    #header, #navbar {
+        padding: 40px;
+    }
+
+    #content, #sidebar, #footer {
+        padding: 10px;
+    }
+
+    h1 a {
+        font-size: 50pt;
+    }
+
+    #navbar{
+        height: 80px;
+        grid-template-columns: 4fr repeat(2, 1fr);
+        margin-left: 450px;
+        gap: 8px;
+    }
+
+    .navi button {
+        padding: 10px;
+        width: 160px;
+    }
+
+    .list tbody .del button {
+        padding: 20px 20px 15px 20px;
+    }
+
+    #sidebar {
+        margin: 20px 0 10px 10px;
+        padding-top: 70px;
+        width: 150px;
+        gap: 8px;
+    }
+    
+    .side {
+        margin-left: 20px;
+    }
+    
+    .side a {
+        font-size: 12pt;
+    }
+    
+    #content {
+        min-height: 400px;
+        padding: 30px 20px 20px 20px;
+    }
+    
+    h2 {
+        font-size: 20pt;
+        font-weight: 700;
+        margin: 20px 0;
+    }
+    
+    .contact table, .list table {
+        padding-top: 10px;
+    }
+    
+    .contact th, .list th {
+        padding: 10px 100px 10px 40px;
+        font-size: 12pt;
+    }
+    
+    .contact tbody td, .list tbody .rowElement {
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+    
+    
+    .contact tbody .ttle {
+        padding-left: 70px;
+    }
+    
+    .contact tbody .descr, .list th, .list tbody .rowElement {
+        padding-left: 20px;
+        padding-right: 70px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    *{
+        font-size: 10pt;
+    }
+
+    .navi button {
+        padding: 10px;
+        width: 120px;
+    }
+
+    .side a {
+        font-size: 11pt;
+    }
+
+    h2 {
+        font-size: 16pt;
+    }
+
+    .contact th, .list th {
+        padding: 10px 80px 10px 40px;
+        font-size: 12pt;
+    }
+
+    .contact tbody .descr, .list th, .list tbody .rowElement {
+        padding-left: 20px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #header {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #navbar{
+        height: 80px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        margin-left: 500px;
+        gap: 8px;
+    }
+
+    .contact th, .list th {
+        padding: 10px 60px 10px 40px;
+        font-size: 12pt;
+    }
+
+
+    .contact tbody .descr, .list th, .list tbody .rowElement {
+        padding-left: 15px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #header {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #navbar{
+        height: 80px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        margin-left: 350px;
+        gap: 8px;
+    }
+
+    .contact th, .list th {
+        padding: 10px 70px 10px 30px;
+        font-size: 12pt;
+    }
+
+    .contact tbody .descr, .list th, .list tbody .rowElement {
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    h1 a {
+        font-size: 40pt;
+    }
+
+    #navbar{
+        margin-left: 300px;
+    }
+
+    .contact th, .list th {
+        padding: 10px 40px 10px 30px;
+        font-size: 12pt;
+    }
+
+    .contact tbody .descr, .list th, .list tbody .rowElement {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    *{
+        font-size: 8pt;
+    }
+
+    h1 a {
+        font-size: 35pt;
+    }
+
+    #navbar{
+        margin-left: 200px;
+    }
+
+    .side a {
+        font-size: 10pt;
+    }
+
+    .contact th, .list th {
+        padding: 10px 25px 10px 20px;
+        font-size: 12pt;
+    }
+
 }

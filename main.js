@@ -1,6 +1,7 @@
 import { PROGRAMLISTA, PROGRAMKULCS } from "./adat.js";
 import { osszeallit, osszeallit2 } from "./adatkezeles.js";
 import { rendezBarmiSzerint } from "./rendezesSzures.js";
+//import { szuresBarmiSzerint } from "./rendezesSzures.js";
 
 let ARTICLE;
 let kartyak;
@@ -22,10 +23,35 @@ $(function () {
       $(tablazat).html(osszeallit2(PROGRAMLISTA));
       torlesGomb();
   }
-  
+
+  /*
+  ezt itt nem tudtam megcsinálni :(
+
+    function szuroAktiv() {
+      $("th").on("click", szuresBarmiSzerint(PROGRAMLISTA, feltetel));
+      osszeAllitMind();
+    }
+
+    */
+
+
   function torlesGomb() {
+    const TR = $("tr.row");
+    TR.each(function (index) {
+      const deleteButton = $('<td class="del"><button>Törlés</button></td>');
+      $(this).append(deleteButton);
+      deleteButton.on("click", function () {
+        $(this).closest("tr").remove();
+        PROGRAMLISTA.splice(index, 1);
+      });
+    });
+  }
+
+  /*function torlesGomb() {
     const TR = $("tr");
-    TR.append("<td><button>Törlés</button></td>");
+    TR.append('<td class="del"><button>Törlés</button></td>');
+    PROGRAMLISTA.splice(index, 1);
+    osszeAllitMind();
     for (let index = 0; index < PROGRAMLISTA.length; index++) {
       $("button").eq(index).on("click", function () {
         torlesFunkcio(index);
@@ -33,31 +59,33 @@ $(function () {
     }
   }
   
+  
   function torlesFunkcio(index) {
     PROGRAMLISTA.splice(index, 1);
     osszeAllitMind();
   }
-  
+  */
+ 
   
   function ujProgram() {
-      let Program = {};
+      const Program = {};
       let kuldheto = true;
       let hibauzenet="Legalább 5 fő részvétele szükséges!";
   
-      Program.megnevezes = $("#pneve").value;
-      Program.idopont = $("#pido").value;
-      Program.helyszin = $("#phely").value;
+      Program.megnevezes = $("#pneve").val();
+      Program.idopont = $("#pido").val();
+      Program.helyszin = $("#phely").val();
       
-      if ($("#presztv").value < 5) {
+      if ($("#presztv").val() < 5) {
           kuldheto = false;
           $("#adathiba").append(hibauzenet);
       } else {
-          Program.resztvevok = $("#presztv").value;
+          Program.resztvevok = $("#presztv").val();
           kuldheto = true;
           $("#adathiba").append("");
       }
   
-      if ($("#ivos").checked) {
+      if ($("#ivos").is(":checked")) {
         Program.alkohol = "igen";
       } else {
         Program.alkohol = "nem";
@@ -71,6 +99,7 @@ $(function () {
       }
     }
   }
+
 );
 
 
